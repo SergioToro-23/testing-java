@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class Employee {
     private Long id;
-    private String name;
+    public String name;
     private String department;
     private BigDecimal salary;
     private int age;
@@ -24,6 +24,15 @@ public class Employee {
         return "Employee{id=" + id + ", name='" + name + "', department='" + department
                 + "', salary=" + salary + ", age=" + age + "}";
     }
+
+    String getName() {
+        return employee.name;
+    }
+
+    int getAge() {
+        return employee.age;
+    }
+// Constructor, getters
 }
 
 

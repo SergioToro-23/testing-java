@@ -11,8 +11,11 @@ public class App {
 
         List<Employee> employees = SampleEmployees.getSampleEmployees();
 
-        for (Employee employee : employees) {
-            System.out.println(employee);
+        System.out.println("Older than 30");
+        for(Employee var:employees){ //O(n)
+            if(var.getAge(var) > 30){
+            System.out.println(var.getName(var)); 
+            }
         }
     }
 
