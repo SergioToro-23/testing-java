@@ -13,10 +13,16 @@ public class App {
 
         System.out.println("Older than 30");
         for(Employee var:employees){ //O(n)
-            if(var.getAge(var) > 30){
-            System.out.println(var.getName(var)); 
+            if(var.getAge() > 30){
+            System.out.println(" "+var.getName()); 
             }
         }
+
+        System.out.println("Older than 30 again with streams and methods");
+        ExercisesEmployees.printEmployeeNames(ExercisesEmployees.getEmployeesOlderThan30(employees));
+
+        System.out.println("Oldest one");
+        System.out.println(" "+ExercisesEmployees.getEmployeeWithBiggestSalary(employees));
     }
 
 }

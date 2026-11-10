@@ -3,21 +3,23 @@ import java.math.BigDecimal;
 
 
 public class Employee {
-    private Long id;
-    public String name;
-    private String department;
-    private BigDecimal salary;
-    private int age;
+
+    private final Long id;
+    public final String name;
+    private final String department;
+    private final BigDecimal salary;
+    private final int age;
 
     // Constructor, getters
 
-    public Employee(Long id, String name, String department, BigDecimal salary, int age) {
-    this.id = id;
-    this.name = name;
-    this.department = department;
-    this.salary = salary;
-    this.age = age;
-}
+    public Employee(Long id, String name, String department, BigDecimal salary, int age) {//first and unique assignment
+        
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.salary = salary;
+        this.age = age;
+    }
 
     @Override
     public String toString() {
@@ -26,11 +28,15 @@ public class Employee {
     }
 
     String getName() {
-        return employee.name;
+        return name;
     }
 
     int getAge() {
-        return employee.age;
+        return age;
+    }
+
+    BigDecimal getSalary(){
+        return salary;
     }
 // Constructor, getters
 }

@@ -5,6 +5,7 @@ public class SampleEmployees {
     
     static List<Employee> getSampleEmployees() {
     return List.of(
+            new Employee(8L, "Sergio", "IT", new BigDecimal("6000"), 40),
             new Employee(1L, "Carlos", "IT", new BigDecimal("5000"), 25),
             new Employee(2L, "Ana", "HR", new BigDecimal("4000"), 30),
             new Employee(3L, "Pedro", "IT", new BigDecimal("7000"), 35),
