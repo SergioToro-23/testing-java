@@ -14,5 +14,5 @@ public class SampleEmployees {
             new Employee(6L, "Maria", "HR", new BigDecimal("8000"), 40),
             new Employee(7L, "Juan", "Finance", new BigDecimal("4500"), 32)
         );
- }
+    }
 }

@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.util.Objects;
 
 
 
@@ -12,12 +13,20 @@ public class Employee {
 
     // Constructor, getters
 
-    public Employee(Long id, String name, String department, BigDecimal salary, int age) {//first and unique assignment
+    public Employee(
+        Long id,
+        String name, 
+        String department, 
+        BigDecimal salary, 
+        int age) {//first and unique assignment
         
-        this.id = id;
+        this.id = Objects.requireNonNull(id, "Employee ID cannot be null");
         this.name = name;
         this.department = department;
         this.salary = salary;
+        if (age < 0) {
+            throw new IllegalArgumentException("Age cannot be negative");
+        }
         this.age = age;
     }
 
