@@ -8,7 +8,15 @@ public class App {
     }
 
     void run() {
+        // employeesExecution();
+        concurrencyExecution();
+    }
 
+    void concurrencyExecution() {
+        
+    }
+
+    void employeesExecution() {
         List<Employee> employees = SampleEmployees.getSampleEmployees();
         /*
          * System.out.println("Older than 30");
@@ -35,8 +43,7 @@ public class App {
         ExercisesEmployees.printEmployeeNames(ExercisesEmployees.getEmployeesBySalaryDescending(employees));
 
         System.out.println("Sorting by bubble method");
-         ExercisesEmployees.printEmployeeNames(ExercisesEmployees.getEmployeesBySalaryDexcendingBubble(employees));
-
+        ExercisesEmployees.printEmployeeNames(ExercisesEmployees.getEmployeesBySalaryDexcendingBubble(employees));
     }
 
 }
