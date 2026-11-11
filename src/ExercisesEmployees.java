@@ -3,6 +3,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class ExercisesEmployees {
 
@@ -17,7 +18,7 @@ public class ExercisesEmployees {
                 .toList(); // O(n)
     }
 
-    public static String getEmployeeWithBiggestSalary(List<Employee> employees) {
+    public static Optional<String> getEmployeeWithBiggestSalary(List<Employee> employees) {
         /*
          * if (employees == null || employees.isEmpty()) {
          * return null;
@@ -33,10 +34,10 @@ public class ExercisesEmployees {
          * return top.getName()+" with salary: "+top.getSalary();
          */
 
-        return employees.stream()
+        return Optional.of(employees.stream()
                 .max(Comparator.comparing(Employee::getSalary))
                 .map(x -> x.getName() + " with salary: " + x.getSalary())
-                .orElse("No employees found");
+                .orElse("No employees found"));
 
     }
 

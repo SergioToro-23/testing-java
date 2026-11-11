@@ -23,7 +23,7 @@ public class App {
         ExercisesEmployees.printEmployeeNames(ExercisesEmployees.getEmployeesOlderThan30(employees));
 
         System.out.println("Biggest salary");
-        System.out.println(" " + ExercisesEmployees.getEmployeeWithBiggestSalary(employees));
+        System.out.println(" " + ExercisesEmployees.getEmployeeWithBiggestSalary(employees).orElse("ninguno"));
 
         System.out.println("List with all employees");
         ExercisesEmployees.printEmployeeNames(employees);
