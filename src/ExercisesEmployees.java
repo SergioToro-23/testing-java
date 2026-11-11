@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class ExercisesEmployees {
 
         return employees.stream()
                 .map(Employee::getSalary)
-                .reduce(BigDecimal.ZERO, (total, salary) -> total.add(salary))
+                .reduce(BigDecimal.ZERO, (totaly, salary) -> totaly.add(salary))
                 .divide(BigDecimal.valueOf(employees.size()), 2, RoundingMode.HALF_UP);
     }
 
@@ -62,28 +63,36 @@ public class ExercisesEmployees {
                 .toList();
     }
 
-    public static List<Employee> getEmployeesBySalaryDexcendingBubble(List<Employee> employees) {
+    public static List<Employee> getEmployeesBySalaryDexcendingBubble(List<Employee> employees) { //O(n^2) using bubble sort
         if (employees == null || employees.size() < 2) {
             return employees;
         }
 
-        List<Employee> result = employees;
+        List<Employee> result = new ArrayList<>(employees);
         int n = result.size();
-        System.out.println(n);
+        boolean swapped = false;
+
         for (int i = 0; i < n; i++) {
-            System.out.println(i);
-            for (int j = 0; j < n; j++) {
-                System.out.println(j);
+            swapped = false;
+            //System.out.println("nuevo i: "+i);
+
+            for (int j = 0; j < n - 1 - i; j++) {
+                //System.out.println("nuevo j: "+j);
                 Employee current = result.get(j);
                 Employee next = result.get(j+1);
+                //System.out.println("salarios "+current.getSalary()+" , "+next.getSalary());
+
                 if (current.getSalary().compareTo(next.getSalary()) < 0) {
+                    //System.out.println("entro swap i ,j: "+i+","+j);
                     result.set(j,next);
                     result.set(j+1,current);
+                    swapped = true;
                 }
             }
+            if (!swapped) break; // If no swaps were made, the list is already sorted
         }
 
-        return employees;
+        return result;
     }
 
 }
