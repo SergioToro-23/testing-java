@@ -33,6 +33,10 @@ public class App {
 
         System.out.println("Employees by salary descending");
         ExercisesEmployees.printEmployeeNames(ExercisesEmployees.getEmployeesBySalaryDescending(employees));
+
+        System.out.println("Sorting by bubble method");
+         ExercisesEmployees.printEmployeeNames(ExercisesEmployees.getEmployeesBySalaryDexcendingBubble(employees));
+
     }
 
 }
