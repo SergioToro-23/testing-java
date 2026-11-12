@@ -13,7 +13,33 @@ public class App {
     }
 
     void concurrencyExecution() {
+        CounterExercise counterExercise = new CounterExercise();
+        Runnable task1 = () -> {
+            
+            System.out.println("Executing task1");
+            for(int i = 0; i<100000;i++){
+                counterExercise.increment();
+            }
+        };
+        Runnable task2 = () -> {
+            System.out.println("Executing task2");
+            for(int i = 0; i<100000;i++){
+                counterExercise.increment();
+            }
+        };
+        Thread thread1 = new Thread(task1);
+        thread1.start();
+        Thread thread2 = new Thread(task2);
+        thread2.start();
         
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println("Counter after task: " + counterExercise.getCounter());
     }
 
     void employeesExecution() {
