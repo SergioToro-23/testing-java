@@ -1,4 +1,37 @@
+import java.time.Clock;
 import java.util.List;
+
+/*
+Problem: Customer Lookup by Any Identifier
+
+Context
+A customer-support team maintains a list of customers. Each customer has three identifiers:
+Field	Example
+ecid	ECID-1001
+email	Jane.Doe@example.com
+phone	(206) 555-1234
+Support agents look up customers by typing whatever identifier they have on hand — sometimes the ECID, sometimes the email, sometimes a phone number. They don't tell the system which type it is.
+
+Task
+Write a method:
+ findCustomer()
+that finds a customer given a single identifier string, auto-detecting whether it is an ECID, an email, or a phone number.
+
+Requirements
+1. ECID — match case-insensitively (ecid-1001 ≡ ECID-1001).
+2. Email — match case-insensitively.
+3. Phone — agents enter numbers in many formats; all of these must match the same customer:
+   - (206) 555-1234
+   - 206-555-1234
+   - 206.555.1234
+   - +1 206 555 1234
+   - 2065551234
+4. Robustness — null or blank input, or an identifier that matches no known type, must return Optional.empty() (no exceptions).
+5. Also provide a convenience method findCustomerExists(...) that returns a boolean.
+6. write a few tests
+
+*/
+
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -12,7 +45,13 @@ public class App {
         // concurrencyExecution();
         // FibonacciExecution();
         // primeNumbers();
-        //RateLimiter.print();
+        /*
+        Clock clock = Clock.systemUTC();
+        RateLimiter limit = new RateLimiter(5,clock);//bean singleton to not change the map of the users using more instances
+        System.out.println(limit.allow("12345"));
+        */
+        CustomerService customerService = new CustomerService();
+        customerService.findCustomer();
     }
 
     void concurrencyExecution() {
