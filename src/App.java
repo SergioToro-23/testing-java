@@ -9,21 +9,24 @@ public class App {
 
     void run() {
         // employeesExecution();
-        concurrencyExecution();
+        // concurrencyExecution();
+        // FibonacciExecution();
+        // primeNumbers();
+        //RateLimiter.print();
     }
 
     void concurrencyExecution() {
-        CounterExercise counterExercise = new CounterExercise();
+        CounterExerciseClass counterExercise = new CounterExerciseClass();
         Runnable task1 = () -> {
-            
+
             System.out.println("Executing task1");
-            for(int i = 0; i<100000;i++){
+            for (int i = 0; i < 100000; i++) {
                 counterExercise.increment();
             }
         };
         Runnable task2 = () -> {
             System.out.println("Executing task2");
-            for(int i = 0; i<100000;i++){
+            for (int i = 0; i < 100000; i++) {
                 counterExercise.increment();
             }
         };
@@ -31,27 +34,17 @@ public class App {
         thread1.start();
         Thread thread2 = new Thread(task2);
         thread2.start();
-        
         try {
             thread1.join();
             thread2.join();
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         System.out.println("Counter after task: " + counterExercise.getCounter());
     }
 
     void employeesExecution() {
-        List<Employee> employees = SampleEmployees.getSampleEmployees();
-        /*
-         * System.out.println("Older than 30");
-         * for(Employee var:employees){ //O(n)
-         * if(var.getAge() > 30){
-         * System.out.println(" "+var.getName());
-         * }
-         * }
-         */
+        List<Employee> employees = SampleEmployees.getSampleEmployees();        
 
         System.out.println("Older than 30 again with streams and methods");
         ExercisesEmployees.printEmployeeNames(ExercisesEmployees.getEmployeesOlderThan30(employees));
@@ -72,4 +65,37 @@ public class App {
         ExercisesEmployees.printEmployeeNames(ExercisesEmployees.getEmployeesBySalaryDexcendingBubble(employees));
     }
 
+    void FibonacciExecution() {
+        int num1 = 0, num2 = 1, aux = 0;
+        System.out.println("Fibonacci sequence: ");
+        System.out.println("0");
+        for (int i = 0; i < 50; i++) {
+            aux = num1 + num2;
+            num2 = num1;
+            num1 = aux;
+            System.out.println(num1);
+        }
+    }
+
+    void primeNumbers() {
+        System.out.println("Prime numbers: ");
+        for (int i = 1; i <= 100; i++) {
+            if (isPrime(i)) {
+                System.out.println(i);
+            }
+        }
+
+    }
+
+    Boolean isPrime(int num) {
+        if (num <= 1) {            
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {                
+                return false;
+            }
+        }
+        return true;
+    }
 }
