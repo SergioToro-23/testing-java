@@ -1,1 +1,36 @@
+# Compiled output
 *.class
+bin/
+out/
+target/
+build/
+
+# Build tool caches
+.gradle/
+
+# Local dependencies: do not commit third-party JARs.
+# Prefer Maven/Gradle dependency management instead.
+lib/*.jar
+
+# VS Code (keep shared project settings)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# Eclipse / Spring Tool Suite
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

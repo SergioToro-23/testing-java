@@ -1,3 +1,4 @@
+package app.employeeschallenge;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -12,6 +13,9 @@ public class Employee {
     private final int age;
 
     // Constructor, getters
+    public Employee(){
+        this(10L, "sergio", "null", BigDecimal.ZERO, 0);
+    }
 
     public Employee(
         Long id,
