@@ -9,6 +9,7 @@ import app.customerservice.Repository;
 import app.employeeschallenge.Employee;
 import app.employeeschallenge.ExercisesEmployees;
 import app.employeeschallenge.SampleEmployees;
+import app.excercisesgpt.MyExcercise;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -28,8 +29,9 @@ public class App {
          * the map of the users using more instances
          * System.out.println(limit.allow("12345"));
          */
-        CustomerService customerService = new CustomerService(new Repository());
-        Optional<Employee> user = customerService.findCustomer("(206) 555-1234");
+       // CustomerService customerService = new CustomerService(new Repository());
+        //Optional<Employee> user = customerService.findCustomer("(206) 555-1234");
+        MyExcercise myExcercise = new MyExcercise();
     }
 
     void concurrencyExecution() {

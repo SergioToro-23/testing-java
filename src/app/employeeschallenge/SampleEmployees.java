@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SampleEmployees {
     
-    static List<Employee> getSampleEmployees() {
+    public static List<Employee> getSampleEmployees() {
     return List.of(
             new Employee(8L, "Sergio", "IT", new BigDecimal("6000"), 40),
             new Employee(1L, "Carlos", "IT", new BigDecimal("5000"), 25),
