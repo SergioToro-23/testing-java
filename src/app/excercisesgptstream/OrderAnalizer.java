@@ -15,20 +15,24 @@ public class OrderAnalizer {
                 .map(product -> product.name())
                 .toList();
     }
-    
-    public double calculateTotalRevenue(List<Order> orders){
-        
+
+    public double calculateTotalRevenue(List<Order> orders) {
+
         return orders.stream()
                 .flatMap(streamOrder -> streamOrder.products().stream())
                 .mapToDouble(product -> product.price())
                 .sum();
     }
 
+    public Map<String, List<Product>> groupByCategory(List<Order> orders) {
+
+        return orders.stream()
+                .flatMap(streamOrder -> streamOrder.products().stream())
+                .collect(Collectors.groupingBy(product -> product.category()));
+
+    }
+
     /*
-     * public Map<String,List<Product>> groupByCategory(List<Order> orders){
-     * 
-     * }
-     * 
      * public Map<String,Long> countProductsByCategory(List<Order> orders){
      * 
      * }
