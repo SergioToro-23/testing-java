@@ -1,4 +1,4 @@
-package app.excercisesgpt;
+package app.excercisesgptbasics;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

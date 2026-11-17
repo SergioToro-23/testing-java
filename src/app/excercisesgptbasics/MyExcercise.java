@@ -1,4 +1,4 @@
-package app.excercisesgpt;
+package app.excercisesgptbasics;
 
 import java.util.List;
 

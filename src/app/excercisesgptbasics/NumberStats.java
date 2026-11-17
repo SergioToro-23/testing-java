@@ -1,4 +1,4 @@
-package app.excercisesgpt;
+package app.excercisesgptbasics;
 
 public record NumberStats(
         int count,

@@ -9,7 +9,7 @@ import app.customerservice.Repository;
 import app.employeeschallenge.Employee;
 import app.employeeschallenge.ExercisesEmployees;
 import app.employeeschallenge.SampleEmployees;
-import app.excercisesgpt.MyExcercise;
+import app.excercisesgptbasics.MyExcercise;
 
 public class App {
     public static void main(String[] args) throws Exception {
