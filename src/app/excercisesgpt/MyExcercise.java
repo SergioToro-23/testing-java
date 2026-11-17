@@ -5,24 +5,38 @@ import java.util.List;
 public class MyExcercise {
 
     public NumberStats analyze(List<Integer> numbers) {
+        if (numbers == null || numbers.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "numbers cannot be empty");
+        }
 
-        Long sum = 0L;
+        long sum = 0L;
         int min = numbers.getFirst().intValue();
-        int max = numbers.getFirst().intValue();
+        int max = numbers.get(0).intValue();
         int evenCount = 0;
         for (Integer number : numbers) {
-            sum = sum + number.longValue();
-            if (max < number.intValue()) {
-                max = number.intValue();
+            if (number == null) {
+                throw new IllegalArgumentException(
+                        "Numbers cannot contain null elements");
             }
-            if (min > number.intValue()) {
-                min = number.intValue();
+            int value = number;
+            sum += number.longValue();
+            if (max < value) {
+                max = value;
             }
-            if (number.intValue() % 2 == 0) {
+            if (min > value) {
+                min = value;
+            }
+            if (value % 2 == 0) {
                 evenCount++;
             }
         }
 
-        return new NumberStats(numbers.size(), sum, min, max, evenCount);
+        return new NumberStats(
+                numbers.size(),
+                sum,
+                min,
+                max,
+                evenCount);
     }
 }
