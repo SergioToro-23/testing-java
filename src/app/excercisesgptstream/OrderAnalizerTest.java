@@ -55,15 +55,13 @@ public class OrderAnalizerTest {
 
     @Test
     void shouldGroupByCategory() {
-        
+
         OrdersList.add(new Order(1L, List.of(new Product(
                 "boeing747",
                 "planes",
                 400.0))));
-        
-        
-        
-                var result = orderAnalizer.groupByCategory(OrdersList);
+
+        var result = orderAnalizer.groupByCategory(OrdersList);
         Map<String, List<Product>> expected = Map.of(
                 "cars", List.of(new Product(
                         "tesla",
